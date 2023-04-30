@@ -24,12 +24,12 @@ backbone:
 
 # v5lite-e head
 head:
-  [ [ -1, 1, Conv, [ 96, 1, 1 ] ],
+  [ [ -1, 1, Conv_CBAM, [ 96, 1, 1 ] ],
     [ -1, 1, nn.Upsample, [ None, 2, 'nearest' ] ],
     [ [ -1, 4 ], 1, Concat, [ 1 ] ],  # cat backbone P4
     [ -1, 1, DWConvblock, [96, 3, 1] ],  # 10
 
-    [ -1, 1, Conv, [ 96, 1, 1 ] ],
+    [ -1, 1, Conv_CBAM, [ 96, 1, 1 ] ],
     [ -1, 1, nn.Upsample, [ None, 2, 'nearest' ] ],
     [ [ -1, 2 ], 1, Concat, [ 1 ] ],  # cat backbone P3
     [ -1, 1, DWConvblock, [96, 3, 1] ],  # 14 (P3/8-small)
